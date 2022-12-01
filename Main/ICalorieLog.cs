@@ -1,0 +1,27 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Main
+{
+    public interface ICalorieLog
+    {
+        
+        /// <summary>
+        /// Reads the file into the CalorieLedger.
+        /// </summary>
+        void ReadFile();
+
+        /// <summary>
+        /// The list of elves that have their calories tracked.
+        /// </summary>
+        List<Elf> CalorieLedger { get; }
+
+        /// <summary>
+        /// The object that reads the file.
+        /// </summary>
+        IFileReader FileReader { get; }
+    }
+}
