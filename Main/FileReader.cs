@@ -15,6 +15,6 @@ namespace Main
 
         string Path { get; set; }
         
-        IEnumerable<string> ReadLines() => File.ReadLines(Path);
+        public IEnumerable<string> ReadLines() => File.ReadLines(Path);
     }
 }
