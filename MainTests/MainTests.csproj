@@ -24,10 +24,24 @@
 
   <ItemGroup>
     <Folder Include="Integration Tests\" />
+    <Folder Include="Integration Tests\TestFiles\" />
+    <Folder Include="Integration Tests\TestFiles\CalorieLog\" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Main\Main.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Integration Tests\TestFiles\" />
+    <None Remove="Integration Tests\TestFiles\CalorieLog\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Integration Tests\TestFiles\CalorieLog\ExampleTest.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Integration Tests\TestFiles\CalorieLog\FirstHalfTest.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>
