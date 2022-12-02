@@ -29,5 +29,11 @@ namespace Main
         /// </summary>
         /// <returns>The total calories of the elf that has the most.</returns>
         int CalculateMostCalorieElfTotal();
+
+        /// <summary>
+        /// Calculates the total calories of the top three elves (by how many calories they have).
+        /// </summary>
+        /// <returns>The total calories of the three elves that have the most.</returns>
+        int CalculateTop3CalorieElfTotal();
     }
 }

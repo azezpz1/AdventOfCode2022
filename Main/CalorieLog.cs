@@ -36,6 +36,24 @@ namespace Main
         }
 
         /// <inheritdoc/>
+        public int CalculateTop3CalorieElfTotal()
+        {
+            var elfTotals = new List<int>();
+            foreach (Elf elf in CalorieLedger)
+            {
+                var total = elf.CalculateCalorieTotal();
+                elfTotals.Add(total);
+            }
+
+            elfTotals.Sort();
+
+            var topThreeTotal =
+                elfTotals[^1] + elfTotals[^2] + elfTotals[^3];
+
+            return topThreeTotal;
+        }
+
+        /// <inheritdoc/>
         public void ReadFile()
         {
             var lines = FileReader.ReadLines();
