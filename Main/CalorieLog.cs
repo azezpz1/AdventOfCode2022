@@ -14,15 +14,56 @@ namespace Main
         }
 
         /// <inheritdoc/>
-        public List<Elf> CalorieLedger => throw new NotImplementedException();
+        public List<Elf> CalorieLedger { get; internal set; } = new List<Elf>();
 
         /// <inheritdoc/>
         public IFileReader FileReader { get; internal set; }
 
         /// <inheritdoc/>
+        public int CalculateMostCalorieElfTotal()
+        {
+            var maxCalorieElfTotal = 0;
+            foreach (Elf elf in CalorieLedger)
+            {
+                var total = elf.CalculateCalorieTotal();
+                if (total > maxCalorieElfTotal)
+                {
+                    maxCalorieElfTotal = total;
+                }
+            }
+
+            return maxCalorieElfTotal;
+        }
+
+        /// <inheritdoc/>
         public void ReadFile()
         {
-            FileReader.ReadLines();
+            var lines = FileReader.ReadLines();
+            var inConstructionElfLedger = new List<int>();
+            foreach (string line in lines)
+            {
+                if (line == string.Empty)
+                {
+                    var elf = new Elf
+                    {
+                        Calories = inConstructionElfLedger
+                    };
+                    inConstructionElfLedger = new List<int>();
+                    CalorieLedger.Add(elf);
+                }
+                else
+                {
+                    inConstructionElfLedger.Add(int.Parse(line));
+                }
+            }
+            if (inConstructionElfLedger.Count != 0)
+            {
+                var elf = new Elf
+                {
+                    Calories = inConstructionElfLedger
+                };
+                CalorieLedger.Add(elf);
+            }
         }
     }
 }

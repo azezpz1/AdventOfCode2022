@@ -8,7 +8,7 @@ namespace Main
 {
     public interface ICalorieLog
     {
-        
+
         /// <summary>
         /// Reads the file into the CalorieLedger.
         /// </summary>
@@ -23,5 +23,11 @@ namespace Main
         /// The object that reads the file.
         /// </summary>
         IFileReader FileReader { get; }
+
+        /// <summary>
+        /// Calculates the total calories of the elf that has the most.
+        /// </summary>
+        /// <returns>The total calories of the elf that has the most.</returns>
+        int CalculateMostCalorieElfTotal();
     }
 }
