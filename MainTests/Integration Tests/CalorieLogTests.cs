@@ -21,7 +21,7 @@ namespace MainTests.IntegrationTests
         }
 
         [Fact]
-        public void FirstHalfTest_CalculateMostCalorieElfTotal_Calculates24000()
+        public void FirstHalfTest_CalculateMostCalorieElfTotal_Calculates67450()
         {
             var fileReader = new FileReader(
                 @"Integration Tests/TestFiles/CalorieLog/FirstHalfTest.txt");
