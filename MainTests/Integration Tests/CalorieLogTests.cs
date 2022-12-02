@@ -33,6 +33,34 @@ namespace MainTests.IntegrationTests
 
             Assert.Equal(expected, result);
         }
+
+        [Fact]
+        public void ExampleTest_CalculateTop3CalorieElfTotal_Calculates45000()
+        {
+            var fileReader = new FileReader(
+                @"Integration Tests/TestFiles/CalorieLog/ExampleTest.txt");
+            var calorieLog = new CalorieLog(fileReader);
+            var expected = 45000;
+            calorieLog.ReadFile();
+
+            var result = calorieLog.CalculateTop3CalorieElfTotal();
+
+            Assert.Equal(expected, result);
+        }
+
+        [Fact]
+        public void FirstHalfTest_CalculateTop3CalorieElfTotal_Calculates199357()
+        {
+            var fileReader = new FileReader(
+                @"Integration Tests/TestFiles/CalorieLog/FirstHalfTest.txt");
+            var calorieLog = new CalorieLog(fileReader);
+            var expected = 199357;
+            calorieLog.ReadFile();
+
+            var result = calorieLog.CalculateTop3CalorieElfTotal();
+
+            Assert.Equal(expected, result);
+        }
     }
 }
 
